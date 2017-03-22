@@ -6,7 +6,7 @@
 
 Name:           linux-hyperv-initrd
 Version:        4.11.rc2
-Release:        3
+Release:        4
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside Hyper-V
 Url:            http://www.kernel.org/
@@ -69,6 +69,12 @@ Patch0129: 0129-free-initmem-asynchronously.patch
 Patch0130: 0130-remove-clear-ioapic.patch
 
 # Serie    XYYY: Extra features modules
+# AUFS
+Patch1001: 1001-aufs4.x-rcN-kbuild-patch.patch
+Patch1002: 1002-aufs4.x-rcN-base-patch.patch
+Patch1003: 1003-aufs4.x-rcN-mmap-patch.patch
+Patch1004: 1004-aufs4.x-rcN-standalone-patch.patch
+Patch1005: 1005-aufs4.x-rcN-docs-fs-includes.patch
 
 %description
 The Linux kernel.
@@ -120,6 +126,13 @@ Linux kernel extra files
 %patch0128 -p1
 %patch0129 -p1
 %patch0130 -p1
+
+# AUFS
+%patch1001 -p1
+%patch1002 -p1
+%patch1003 -p1
+%patch1004 -p1
+%patch1005 -p1
 
 cp %{SOURCE1} .
 
