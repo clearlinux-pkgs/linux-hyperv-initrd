@@ -6,7 +6,7 @@
 
 Name:           linux-hyperv-initrd
 Version:        4.11.rc2
-Release:        4
+Release:        5
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside Hyper-V
 Url:            http://www.kernel.org/
@@ -141,7 +141,7 @@ BuildKernel() {
     MakeTarget=$1
 
     Arch=x86_64
-    ExtraVer="-%{release}.hyperv"
+    ExtraVer="-%{release}.hyperv-initrd"
 
     perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = ${ExtraVer}/" Makefile
 
@@ -166,8 +166,8 @@ InstallKernel() {
     mkdir   -p ${KernelDir}
     install -m 644 .config    ${KernelDir}/config-${KernelVer}
     install -m 644 System.map ${KernelDir}/System.map-${KernelVer}
-    cp  $KernelImage ${KernelDir}/org.clearlinux.hyperv.%{version}-%{release}
-    chmod 755 ${KernelDir}/org.clearlinux.hyperv.%{version}-%{release}
+    cp  $KernelImage ${KernelDir}/org.clearlinux.hyperv-initrd.%{version}-%{release}
+    chmod 755 ${KernelDir}/org.clearlinux.hyperv-initrd.%{version}-%{release}
 
     mkdir -p %{buildroot}/usr/lib/modules/$KernelVer
     make -s ARCH=$Arch INSTALL_MOD_PATH=%{buildroot}/usr modules_install KERNELRELEASE=$KernelVer
@@ -190,14 +190,14 @@ rm -rf %{buildroot}/usr/lib/firmware
 # Recreate modules indices
 depmod -a -b %{buildroot}/usr %{kversion}
 
-ln -s org.clearlinux.hyperv.%{version}-%{release} %{buildroot}/usr/lib/kernel/default-hyperv
+ln -s org.clearlinux.hyperv-initrd.%{version}-%{release} %{buildroot}/usr/lib/kernel/default-hyperv-initrd
 
 %files
 %dir /usr/lib/kernel
 %dir /usr/lib/modules/%{kversion}
 /usr/lib/kernel/config-%{kversion}
-/usr/lib/kernel/org.clearlinux.hyperv.%{version}-%{release}
-/usr/lib/kernel/default-hyperv
+/usr/lib/kernel/org.clearlinux.hyperv-initrd.%{version}-%{release}
+/usr/lib/kernel/default-hyperv-initrd
 /usr/lib/modules/%{kversion}/kernel
 /usr/lib/modules/%{kversion}/modules.*
 
