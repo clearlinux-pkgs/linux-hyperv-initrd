@@ -5,8 +5,8 @@
 #
 
 Name:           linux-hyperv-initrd
-Version:        4.11.rc2
-Release:        5
+Version:        4.11.0
+Release:        6
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside Hyper-V
 Url:            http://www.kernel.org/
@@ -14,7 +14,7 @@ Group:          kernel
 Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.11-rc2.tar.xz
 Source1:        config
 
-%define kversion 4.11-rc2-%{release}.hyperv-initrd
+%define kversion 4.11.0-%{release}.hyperv-initrd
 
 BuildRequires:  bash >= 2.03
 BuildRequires:  bc
