@@ -1,4 +1,4 @@
 PKG_NAME := linux-hyperv-initrd
-URL := https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.11-rc2.tar.xz
+URL := https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.11.8.tar.xz
 
 include ../common/Makefile.common
