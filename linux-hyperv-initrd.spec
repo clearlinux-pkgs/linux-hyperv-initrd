@@ -6,7 +6,7 @@
 
 Name:           linux-hyperv-initrd
 Version:        4.11.8
-Release:        10
+Release:        11
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside Hyper-V
 Url:            http://www.kernel.org/
